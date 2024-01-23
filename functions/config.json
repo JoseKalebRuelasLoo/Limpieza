@@ -7,5 +7,11 @@
         "name": "NewTask",
         "private": false,
         "run_as_system": true
+    },
+    {
+        "name": "GetAllTasks_incomplete",
+        "private": false,
+        "run_as_system": true,
+        "disable_arg_logs": true
     }
 ]
