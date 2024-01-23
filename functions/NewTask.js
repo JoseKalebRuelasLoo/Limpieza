@@ -19,8 +19,8 @@ exports = async function(request, response){
     
     const newItem = {
       "isComplete": "false",
-      "place": place,
-      "task": task
+      "place": "place",
+      "task": "task"
     };
 
     const { insertedId } = await collection.insertOne({newItem});
