@@ -13,7 +13,7 @@ exports = async function(request, response){
     if (request.body === undefined) {
       throw new Error(`Request body was not defined.`);
     }
-    console.log(request);
+    console.log(request.body);
     //const place = request.body.place;
     //const task = request.body.task;
     
