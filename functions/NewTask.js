@@ -13,8 +13,9 @@ exports = async function(request, response){
     if (request.body === undefined) {
       throw new Error(`Request body was not defined.`);
     }
-    const place = request.body.place;
-    const task = request.body.task;
+    console.log(request);
+    //const place = request.body.place;
+    //const task = request.body.task;
     
     const newItem = {
       "isComplete": "false",
