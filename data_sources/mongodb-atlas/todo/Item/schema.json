@@ -8,7 +8,8 @@
             "bsonType": "bool"
         },
         "owner_id": {
-            "bsonType": "string"
+            "bsonType": "string",
+            "defult": ""
         },
         "place": {
             "bsonType": "string"
