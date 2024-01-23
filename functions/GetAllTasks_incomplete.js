@@ -14,10 +14,10 @@ exports = async function(request, response){
       { "isComplete": "false"},
     );
     response.setStatusCode(201);
-    response.setBody(JSON.stringify(findResult));
-
+    response.setBody(findResult);
   } catch(error) {
     response.setStatusCode(400);
     response.setBody(error.message);
+
   }
 };
