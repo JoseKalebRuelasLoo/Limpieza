@@ -4,7 +4,7 @@ exports = async function(request, response){
 
   // Update these to reflect your db/collection
   var dbName = "todo";
-  var collName = "tasks";
+  var collName = "Item";
 
   // Get a collection from the context
   var collection = context.services.get(serviceName).db(dbName).collection(collName);
