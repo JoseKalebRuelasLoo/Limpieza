@@ -1,13 +1,5 @@
 {
     "title": "Item",
-    "type": "object",
-    "required": [
-        "_id",
-        "isComplete",
-        "place",
-        "task",
-        "requester"
-    ],
     "properties": {
         "_id": {
             "bsonType": "objectId"
@@ -15,17 +7,16 @@
         "isComplete": {
             "bsonType": "bool"
         },
+        "owner_id": {
+            "bsonType": "string"
+        },
         "place": {
             "bsonType": "string"
-        },
-        "task": {
-            "bsonType": "string"
-        },
-        "requester":{
-            "bsonType": "string"
-        },
-        "completionDate": {
-            "bsonType": "date"
         }
-    }
+    },
+    "required": [
+        "_id",
+        "isComplete",
+        "place"
+    ]
 }
