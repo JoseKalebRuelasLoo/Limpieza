@@ -15,7 +15,7 @@ exports = async function(request, response){
     }
     const body = JSON.parse(request.body.text());
 
-    const { insertedId } = await collection.insertOne({requestBody: body });
+    const { insertedId } = await collection.insertOne({isComplete:"false", requestBody: body });
     // 3. Configure the response
     response.setStatusCode(201);
     // tip: You can also use EJSON.stringify instead of JSON.stringify.
