@@ -1,7 +1,12 @@
 [
     {
         "name": "resetFunc",
-        "private": true,
-        "run_as_user_id": "65a959c41745e860b344f51c"
+        "private": true
+    },
+    {
+        "name": "NewTask",
+        "private": false,
+        "run_as_system": true,
+        "disable_arg_logs": true
     }
 ]
