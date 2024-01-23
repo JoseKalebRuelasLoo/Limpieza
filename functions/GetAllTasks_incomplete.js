@@ -14,7 +14,7 @@ exports = async function(request, response){
       { "isComplete": "false"},
     );
     response.setStatusCode(201);
-    response.setBody(findResult);
+    response.setBody(JSON.stringify(findResult));
   } catch(error) {
     response.setStatusCode(400);
     response.setBody(error.message);
