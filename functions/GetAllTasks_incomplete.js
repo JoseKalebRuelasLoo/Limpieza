@@ -9,16 +9,14 @@ exports = async function(request, response){
   // Get a collection from the context
   var collection = context.services.get(serviceName).db(dbName).collection(collName);
 
-  try {
-    var findResult = await collection.find(
-      { "isComplete": "false"},
-    );
-    console.log(findResult);
+
+  return collection.find({ "isComplete": "false"})
+  .then(items => {
+    console.log(`Successfully found ${items.length} documents.`)
     response.setStatusCode(201);
-    response.setBody(JSON.stringify(findResult));
-  } catch(error) {
+    response.setBody(JSON.stringify(items));
+  })
+  .catch(error => console.error(`Failed to find documents: ${error}`))
     response.setStatusCode(400);
     response.setBody(error.message);
-
-  }
 };
