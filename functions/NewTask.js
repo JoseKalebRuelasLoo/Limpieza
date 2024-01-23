@@ -13,17 +13,9 @@ exports = async function(request, response){
     if (request.body === undefined) {
       throw new Error(`Request body was not defined.`);
     }
-    console.log(JSON.parse(request.body.place.text()));
-    //const place = request.body.place;
-    //const task = request.body.task;
-    
-    const newItem = {
-      "isComplete": "false",
-      "place": "place",
-      "task": "task"
-    };
+    const body = JSON.parse(request.body.text());
 
-    const { insertedId } = await collection.insertOne({newItem});
+    const { insertedId } = await collection.insertOne({requestBody: body });
     // 3. Configure the response
     response.setStatusCode(201);
     // tip: You can also use EJSON.stringify instead of JSON.stringify.
