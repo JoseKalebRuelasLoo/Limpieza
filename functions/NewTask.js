@@ -16,11 +16,14 @@ exports = async function(request, response){
     console.log(request);
     const place = request.body.place;
     const task = request.body.task;
+    const requester = request.body.requester;
+    console.log(request.body);
     
     const newItem = {
       "isComplete": "false",
       "place": "place",
-      "task": "task"
+      "task": "task",
+      "requester": "Anonimo"
     };
 
     const { insertedId } = await collection.insertOne({newItem});
