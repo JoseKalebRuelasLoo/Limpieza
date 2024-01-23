@@ -11,6 +11,7 @@ exports = async function(request, response){
 
 
   return collection.find({ "isComplete": "false"})
+  .toArray()
   .then(items => {
     console.log(`Successfully found ${items.length} documents.`)
     response.setStatusCode(201);
