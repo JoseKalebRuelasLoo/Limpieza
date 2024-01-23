@@ -13,6 +13,7 @@ exports = async function(request, response){
     var findResult = await collection.find(
       { "isComplete": "false"},
     );
+    console.log(findResult);
     response.setStatusCode(201);
     response.setBody(JSON.stringify(findResult));
   } catch(error) {
