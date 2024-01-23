@@ -5,8 +5,7 @@
             "bsonType": "objectId"
         },
         "isComplete": {
-            "bsonType": "bool",
-            "defult": false
+            "bsonType": "bool"
         },
         "owner_id": {
             "bsonType": "string",
