@@ -8,9 +8,10 @@ exports = async function(request, response){
 
   // Get a collection from the context
   var collection = context.services.get(serviceName).db(dbName).collection(collName);
+  
+	const state = request.query.isComplete;
 
-
-  return collection.find({ "isComplete": "false"})
+  return collection.find({ "isComplete": state})
   .toArray()
   .then(items => {
     console.log(`Successfully found ${items.length} documents.`)
