@@ -1,7 +1,6 @@
 exports = async function (request, response) {
 
 	var collection = context.services.get("mongodb-atlas").db("todo").collection("Item");
-  console.log(request.query.id);
 	const query = { "_id": BSON.ObjectId(request.query.id) };
 
 	const projection = {
@@ -11,10 +10,11 @@ exports = async function (request, response) {
 	collection.findOne(query, projection)
 		.then(result => {
 			if (result) {
+			  var state;
 				if (result.isComplete === "true" ) {
-					var state = "false"
+					state = "false";
 				} else {
-					var state = "true"
+					state = "true";
 				}
 
 				const update = {
@@ -28,7 +28,10 @@ exports = async function (request, response) {
 						if (updatedDocument) {
 							console.log(`Successfully updated document: ${updatedDocument}.`)
 							response.setStatusCode(201);
-							response.setBody(JSON.stringify(updatedDocument));
+							response.setBody(JSON.stringify({
+									updatedDocument: updatedDocument,
+									message: "Successfully updated document",
+								}));
 						} else {
 							console.log(`No document matches the provided query`)
 							response.setStatusCode(400);
