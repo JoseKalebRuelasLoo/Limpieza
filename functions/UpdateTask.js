@@ -1,8 +1,8 @@
 exports = async function (request, response) {
 
 	var collection = context.services.get("mongodb-atlas").db("todo").collection("Item");
-
-	const query = { "_id": BSON.ObjectId(JSON.parse(request.body.text())) };
+  console.log(request.query.id);
+	const query = { "_id": BSON.ObjectId(request.query.id) };
 
 	const projection = {
 		"isComplete": 1
