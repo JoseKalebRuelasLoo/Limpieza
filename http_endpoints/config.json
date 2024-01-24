@@ -13,7 +13,7 @@
     {
         "http_method": "GET",
         "route": "/getAll_Incomplete",
-        "function_name": "GetAllTasks_incomplete",
+        "function_name": "GetAllTasks_Incomplete",
         "validation_method": "NO_VALIDATION",
         "respond_result": true,
         "fetch_custom_user_data": false,
