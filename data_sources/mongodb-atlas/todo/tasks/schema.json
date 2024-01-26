@@ -1,0 +1,34 @@
+{
+    "properties": {
+        "Place": {
+            "bsonType": "string"
+        },
+        "Task": {
+            "bsonType": "string"
+        },
+        "frequency": {
+            "bsonType": "object",
+            "properties": {
+                "cron": {
+                    "bsonType": "string"
+                },
+                "days": {
+                    "bsonType": "string"
+                }
+            },
+            "required": [
+                "cron",
+                "days"
+            ]
+        },
+        "Completed": {
+            "bsonType": "bool"
+        }
+    },
+    "required": [
+        "Place",
+        "Task",
+        "frequency",
+        "Completed"
+    ]
+}
