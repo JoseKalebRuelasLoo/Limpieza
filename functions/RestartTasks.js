@@ -13,7 +13,7 @@ exports = async function() {
 
     if (ejecutarTarea) {
       await collection.updateOne(
-        { _id: registro._id },
+        { _id: documento._id },
         { $set: { Completed: "false" } }
       );
     }
