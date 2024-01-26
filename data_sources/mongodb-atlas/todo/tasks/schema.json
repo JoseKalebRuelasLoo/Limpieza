@@ -6,19 +6,19 @@
         "Task": {
             "bsonType": "string"
         },
-        "frequency": {
+        "Frequency": {
             "bsonType": "object",
             "properties": {
-                "cron": {
+                "Cron": {
                     "bsonType": "string"
                 },
-                "days": {
+                "Days": {
                     "bsonType": "string"
                 }
             },
             "required": [
-                "cron",
-                "days"
+                "Cron",
+                "Days"
             ]
         },
         "Completed": {
@@ -28,7 +28,7 @@
     "required": [
         "Place",
         "Task",
-        "frequency",
+        "Frequency",
         "Completed"
     ]
 }
