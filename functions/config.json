@@ -22,5 +22,9 @@
     {
         "name": "RestartTasks",
         "private": true
+    },
+    {
+        "name": "restartTaskTwiceAMonth",
+        "private": true
     }
 ]
