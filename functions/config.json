@@ -26,5 +26,10 @@
     {
         "name": "restartTaskTwiceAMonth",
         "private": true
+    },
+    {
+        "name": "GetAllTasks",
+        "private": false,
+        "run_as_system": true
     }
 ]
