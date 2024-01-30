@@ -4,12 +4,12 @@
         "private": true
     },
     {
-        "name": "NewTask",
+        "name": "NewRequests",
         "private": false,
         "run_as_system": true
     },
     {
-        "name": "GetAllTasks",
+        "name": "GetAllRequests",
         "private": false,
         "run_as_system": true,
         "disable_arg_logs": true
