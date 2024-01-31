@@ -13,7 +13,7 @@ exports = async function(request, response){
   
   var expresionRegular = new RegExp("[" + query + "q]");
   
-  return collection.find({ "isComplete": "true","Frequency":{"Cron": { $regex: expresionRegular }}})
+  return collection.find({ "Frequency":{"Cron": { $regex: expresionRegular }}})
   .toArray()
   .then(items => {
     console.log(`Successfully found ${items.length} documents.`)
