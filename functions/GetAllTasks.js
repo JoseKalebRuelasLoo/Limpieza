@@ -11,9 +11,9 @@ exports = async function(request, response){
   
   const query = { "day": request.query.day };
   
-  var expresionRegular = new RegExp("[" + query + "]");
+  //var expresionRegular = new RegExp("[" + query + "]");
   
-  return collection.find({ "Frequency":{"Cron": { $regex: expresionRegular }}})
+  return collection.find({ "Frequency":{"Cron": { $regex: query }}})
   .toArray()
   .then(items => {
     console.log(`Successfully found ${items.length} documents.`)
