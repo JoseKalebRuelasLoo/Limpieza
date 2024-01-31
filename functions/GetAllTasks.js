@@ -9,7 +9,7 @@ exports = async function(request, response){
   // Get a collection from the context
   var collection = context.services.get(serviceName).db(dbName).collection(collName);
   
-  const query = { "day": request.query.day };
+  const query = { "day": JSON.stringify(request.query.day) };
   
   //var expresionRegular = new RegExp("[" + query + "]");
   
