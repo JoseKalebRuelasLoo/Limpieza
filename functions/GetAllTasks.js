@@ -15,7 +15,7 @@ exports = async function(request, response){
   return collection.find({"Frequency.Cron": {$regex: diaSemana} })
   .toArray()
   .then(items => {
-    console.log(`Successfully found ${items.length} documents. ${query} `)
+    console.log(`Successfully found ${items.length} documents. `)
     response.setStatusCode(201);
     response.setBody(JSON.stringify(items));
   })
