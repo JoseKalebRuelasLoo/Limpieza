@@ -9,7 +9,11 @@ exports = async function(request, response){
   // Get a collection from the context
   var collection = context.services.get(serviceName).db(dbName).collection(collName);
   
-  return collection.find({ "isComplete": "false"})
+  const query = { "day": BSON.ObjectId(request.query.day) };
+  
+  var expresionRegular = new RegExp("[" + query + "q]");
+  
+  return collection.find({ "isComplete": "true","Frequency":{"Cron": { $regex: expresionRegular }}})
   .toArray()
   .then(items => {
     console.log(`Successfully found ${items.length} documents.`)
