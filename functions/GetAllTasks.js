@@ -12,7 +12,7 @@ exports = async function(request, response){
   const fechaActual = new Date();
   const diaSemana = fechaActual.getDay().toString();
   
-  return collection.find({"Frequency.Cron": {$regex: diaSemana} })
+  return collection.find({$or : [ {"Frequency.Cron": {$regex: diaSemana} },{"Frequency.Cron": "q", "Completed": "false" }]})
   .toArray()
   .then(items => {
     console.log(`Successfully found ${items.length} documents. `)
