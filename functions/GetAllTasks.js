@@ -9,8 +9,7 @@ exports = async function(request, response){
   // Get a collection from the context
   var collection = context.services.get(serviceName).db(dbName).collection(collName);
   
-  const fechaActual = new Date();
-  const diaSemana = fechaActual.getDay().toString();
+	const diaSemana = request.query.dia;
   
   return collection.find({$or : [ {"Frequency.Cron": {$regex: diaSemana} },{"Frequency.Cron": "q", "Completed": "false" }]})
   .toArray()
