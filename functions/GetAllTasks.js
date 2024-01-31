@@ -10,7 +10,7 @@ exports = async function(request, response){
   var collection = context.services.get(serviceName).db(dbName).collection(collName);
   
   const fechaActual = new Date();
-  const diaSemana = fechaActual.getDay();
+  const diaSemana = fechaActual.getDay().toString();
   
   return collection.find({"Frequency.Cron": {$regex: diaSemana} })
   .toArray()
