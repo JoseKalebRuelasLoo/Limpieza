@@ -9,9 +9,10 @@ exports = async function(request, response){
   // Get a collection from the context
   var collection = context.services.get(serviceName).db(dbName).collection(collName);
   
-  const query =request.query.day;
+  const fechaActual = new Date();
+  const diaSemana = fechaActual.getDay();
   
-  return collection.find({"Frequency.Cron": {$regex: query} })
+  return collection.find({"Frequency.Cron": {$regex: diaSemana} })
   .toArray()
   .then(items => {
     console.log(`Successfully found ${items.length} documents. ${query} `)
