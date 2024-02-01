@@ -13,6 +13,7 @@ exports = async function(request, response){
   
   return collection.find({$or : [ {"Frequency.Cron": {$regex: diaSemana} },{"Frequency.Cron": "q", "Completed": "false" }]})
   .toArray()
+  .sort({"Place":1})
   .then(items => {
     console.log(`Successfully found ${items.length} documents. `)
     response.setStatusCode(201);
