@@ -11,9 +11,8 @@ exports = async function(request, response){
   
 	const diaSemana = request.query.dia;
   
-  return collection.find({$or : [ {"Frequency.Cron": {$regex: diaSemana} },{"Frequency.Cron": "q", "Completed": "false" }]})
+  return collection.find({$or : [ {"Frequency.Cron": {$regex: diaSemana} },{"Frequency.Cron": "q", "Completed": "false" }]}).sort({ Place: 1 })
   .toArray()
-  .sort({"Place":1})
   .then(items => {
     console.log(`Successfully found ${items.length} documents. `)
     response.setStatusCode(201);
