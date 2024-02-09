@@ -11,7 +11,7 @@ exports = async function(request, response){
   
 	const state = request.query.isComplete;
 
-  return collection.find({ "isComplete": state})
+  return collection.find({ "isComplete": state}).sort({ Place: 1 })
   .toArray()
   .then(items => {
     console.log(`Successfully found ${items.length} documents.`)
