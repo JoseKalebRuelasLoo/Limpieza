@@ -11,7 +11,7 @@ exports = async function (request, response) {
 		.then(result => {
 			if (result) {
 			  var state;
-				if (result.isComplete === "true" ) {
+				if (result.Completed === "true" ) {
 					state = "false";
 				} else {
 					state = "true";
