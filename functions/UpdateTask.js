@@ -27,7 +27,7 @@ exports = async function (request, response) {
 					.then(updatedDocument => {
 						if (updatedDocument) {
 							console.log(`Successfully updated document: ${updatedDocument}.`)
-							response.setStatusCode(201);
+							response.setStatusCode(200);
 							response.setBody(JSON.stringify({
 									updatedDocument: updatedDocument,
 									message: "Successfully updated document",
