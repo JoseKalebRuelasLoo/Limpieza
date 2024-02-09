@@ -12,9 +12,9 @@ exports = async function (request, response) {
 			if (result) {
 			  var state;
 				if (result.isComplete === "true" ) {
-					state = "false";
+					state = "false2";
 				} else {
-					state = "true";
+					state = "true2";
 				}
 
 				const update = {
