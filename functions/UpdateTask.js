@@ -17,7 +17,7 @@ exports = async function (request, response) {
 					state = "true";
 				}
 
-console.log(result.Completed);
+console.log(result);
 
 				const update = {
 					"$set": {
