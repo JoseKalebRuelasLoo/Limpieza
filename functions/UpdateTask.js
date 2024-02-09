@@ -1,6 +1,6 @@
 exports = async function (request, response) {
 
-	var collection = context.services.get("mongodb-atlas").db("todo").collection("Item");
+	var collection = context.services.get("mongodb-atlas").db("todo").collection("tasks");
 	const query = { "_id": BSON.ObjectId(request.query.id) };
 
 	const projection = {
@@ -10,13 +10,12 @@ exports = async function (request, response) {
 	collection.findOne(query, projection)
 		.then(result => {
 			if (result) {
-			  var state = "A";
-			  /*
+			  var state;
 				if (result.isComplete === "true" ) {
 					state = "false2";
 				} else {
 					state = "true2";
-				}*/
+				}
 
 				const update = {
 					"$set": {
@@ -34,12 +33,12 @@ exports = async function (request, response) {
 									message: "Successfully updated document",
 								}));
 						} else {
-							console.log(`No document matches the provided query1`)
+							console.log(`No document matches the provided query`)
 							response.setStatusCode(400);
 							response.setBody(
 								JSON.stringify({
 									updatedDocument: updatedDocument,
-									message: "No document matches the provided query1",
+									message: "No document matches the provided query",
 								})
 							);
 						}
@@ -51,12 +50,12 @@ exports = async function (request, response) {
 					})
 
 			} else {
-			  console.log(`No document matches the provided query2`)
+			  console.log(`No document matches the provided query`)
 				response.setStatusCode(400);
 				response.setBody(
 					JSON.stringify({
 						result: result,
-						message: "No document matches the provided query2",
+						message: "No document matches the provided query",
 					})
 				);
 			}
