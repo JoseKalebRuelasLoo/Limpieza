@@ -12,7 +12,7 @@ exports = async function (request, response) {
 			if (result) {
 			  var state;
 				if (result.isComplete === "true" ) {
-					state = "true";
+					state = "false";
 				} else {
 					state = "true";
 				}
