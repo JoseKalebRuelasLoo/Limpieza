@@ -10,7 +10,6 @@ exports = async function(request, response){
   var collection = context.services.get(serviceName).db(dbName).collection(collName);
   
 	const state = request.query.isComplete;
-	console.log("state"+state)
 
   return collection.find({ "isComplete": state}).sort({ Place: 1 })
   .toArray()
