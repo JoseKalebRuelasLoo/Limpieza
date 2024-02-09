@@ -13,7 +13,7 @@ exports = async function (request, response) {
 			  var state;
 				if (result.Completed === "true" ) {
 					state = "false";
-				} else if (result.Completed === "false"){
+				} else {
 					state = "true";
 				}
 
