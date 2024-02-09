@@ -10,12 +10,13 @@ exports = async function (request, response) {
 	collection.findOne(query, projection)
 		.then(result => {
 			if (result) {
-			  var state;
+			  var state = "A";
+			  /*
 				if (result.isComplete === "true" ) {
 					state = "false2";
 				} else {
 					state = "true2";
-				}
+				}*/
 
 				const update = {
 					"$set": {
