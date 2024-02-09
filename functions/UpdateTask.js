@@ -12,14 +12,14 @@ exports = async function (request, response) {
 			if (result) {
 			  var state;
 				if (result.isComplete === "true" ) {
-					state = "false2";
+					state = "false";
 				} else {
-					state = "true2";
+					state = "true";
 				}
 
 				const update = {
 					"$set": {
-						"isComplete": state
+						"Completed": state
 					}
 				};
 
