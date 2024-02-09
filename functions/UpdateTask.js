@@ -17,8 +17,6 @@ exports = async function (request, response) {
 					state = "true";
 				}
 
-console.log(result);
-
 				const update = {
 					"$set": {
 						"Completed": state
@@ -28,7 +26,7 @@ console.log(result);
 				return collection.findOneAndUpdate(query, update)
 					.then(updatedDocument => {
 						if (updatedDocument) {
-							console.log(`Successfully updated document: ${updatedDocument}.`)
+							console.log(`Successfully updated document`)
 							response.setStatusCode(200);
 							response.setBody(JSON.stringify({
 									updatedDocument: updatedDocument,
