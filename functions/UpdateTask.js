@@ -34,12 +34,12 @@ exports = async function (request, response) {
 									message: "Successfully updated document",
 								}));
 						} else {
-							console.log(`No document matches the provided query`)
+							console.log(`No document matches the provided query1`)
 							response.setStatusCode(400);
 							response.setBody(
 								JSON.stringify({
 									updatedDocument: updatedDocument,
-									message: "No document matches the provided query",
+									message: "No document matches the provided query1",
 								})
 							);
 						}
@@ -51,12 +51,12 @@ exports = async function (request, response) {
 					})
 
 			} else {
-			  console.log(`No document matches the provided query`)
+			  console.log(`No document matches the provided query2`)
 				response.setStatusCode(400);
 				response.setBody(
 					JSON.stringify({
 						result: result,
-						message: "No document matches the provided query",
+						message: "No document matches the provided query2",
 					})
 				);
 			}
