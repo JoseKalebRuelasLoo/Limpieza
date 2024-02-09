@@ -10,7 +10,7 @@ exports = async function (request, response) {
 			"isComplete": state
 		}
 	};
-
+//
 	return collection.findOneAndUpdate(query, update)
 	.then(updatedDocument => {
 		if (updatedDocument) {
