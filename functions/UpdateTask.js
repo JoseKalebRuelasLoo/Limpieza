@@ -4,7 +4,7 @@ exports = async function (request, response) {
 	const query = { "_id": BSON.ObjectId(request.query.id) };
 
 	const projection = {
-		"isComplete": 1
+		"Completed": 1
 	}
 
 	collection.findOne(query, projection)
