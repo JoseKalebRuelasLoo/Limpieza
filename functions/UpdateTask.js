@@ -45,13 +45,13 @@ exports = async function (request, response) {
 						}
 					})
 					.catch(error => {
-						console.error(`No document matches the provided query`)
+						console.error(error.message)
 						response.setStatusCode(400)
 						response.setBody(error.message)
 					})
 
 			} else {
-			  console.error(`Failed to update documents: ${error}`)
+			  console.log(`No document matches the provided query`)
 				response.setStatusCode(400);
 				response.setBody(
 					JSON.stringify({
