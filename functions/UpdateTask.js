@@ -44,7 +44,7 @@ exports = async function (request, response) {
 						}
 					})
 					.catch(error => {
-						console.error(error.message)
+						console.error("Aqui "+error.message)
 						response.setStatusCode(400)
 						response.setBody(error.message)
 					})
