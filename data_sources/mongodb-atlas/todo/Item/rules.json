@@ -3,10 +3,27 @@
     "collection": "Item",
     "roles": [
         {
-            "name": "write-own-items",
-            "apply_when": {},
+            "name": "admin",
+            "apply_when": {
+                "%%user.custom_data.isGlobalAdmin": true
+            },
             "document_filters": {
                 "read": true,
+                "write": true
+            },
+            "insert": true,
+            "delete": true,
+            "search": true,
+            "read": true,
+            "write": true
+        },
+        {
+            "name": "user",
+            "apply_when": {},
+            "document_filters": {
+                "read": {
+                    "owner_id": "%%user.id"
+                },
                 "write": {
                     "owner_id": "%%user.id"
                 }
