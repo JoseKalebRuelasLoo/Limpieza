@@ -19,11 +19,13 @@
     },
     {
         "name": "RestartTasks",
-        "private": true
+        "private": true,
+        "run_as_system": true
     },
     {
         "name": "restartTaskTwiceAMonth",
-        "private": true
+        "private": true,
+        "run_as_system": true
     },
     {
         "name": "GetAllTasks",
