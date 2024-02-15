@@ -4,10 +4,7 @@
     "roles": [
         {
             "name": "readAndWriteAll",
-            "apply_when": {
-                "owner_id": "65ce5742cea80a9f46b384aa",
-                "owner_name": "UsuarioAndroid"
-            },
+            "apply_when": {},
             "document_filters": {
                 "read": true,
                 "write": true
