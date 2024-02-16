@@ -29,7 +29,8 @@
     },
     {
         "name": "GetAllTasks",
-        "private": false
+        "private": false,
+        "run_as_user_id": "65ce5742cea80a9f46b384aa"
     },
     {
         "name": "CompleteTask",
