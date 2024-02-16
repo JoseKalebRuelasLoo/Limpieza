@@ -9,6 +9,16 @@ exports = async function(request, response){
   // Get a collection from the context
   var collection = context.services.get(serviceName).db(dbName).collection(collName);
   
+  const apiKeyClient = Stitch.defaultAppClient.auth.getProviderClient(UserApiKeyAuthProviderClient.factory);
+
+apiKeyClient
+  .createApiKey('<api-key-name>')
+  .then(result => {
+     const { name, key } = result;
+     console.log(`Successfully created user API key ${name} with value ${key}`);
+  })
+  .catch(err => console.error(err));
+  
 	const diaSemana = request.query.dia;
   
   return collection.find({$or : [ {"Frequency.Cron": {$regex: diaSemana} },{"Frequency.Cron": "q", "Completed": "false" }]}).sort({ Place: 1 })
