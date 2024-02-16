@@ -9,8 +9,6 @@ exports = async function(request, response){
   // Get a collection from the context
   var collection = context.services.get(serviceName).db(dbName).collection(collName);
   
-  const apiKeyClient = Stitch.defaultAppClient.auth.getProviderClient(UserApiKeyAuthProviderClient.factory);
-
 	const diaSemana = request.query.dia;
   
   return collection.find({$or : [ {"Frequency.Cron": {$regex: diaSemana} },{"Frequency.Cron": "q", "Completed": "false" }]}).sort({ Place: 1 })
@@ -23,4 +21,4 @@ exports = async function(request, response){
   .catch(error => console.error(`Failed to find documents: ${error}`))
     response.setStatusCode(400);
     response.setBody(error.message);
-};//
+};
