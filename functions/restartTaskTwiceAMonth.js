@@ -9,7 +9,7 @@ exports = async function() {
   documentos.forEach(async (documento) => {
     const cronDocumento = documento.Frequency.Cron; 
 
-    const ejecutarTarea = cronDocumento.includes("q") && diaMes.includes(1) ||diaMes.includes(16);
+    const ejecutarTarea = cronDocumento =="q" && (diaMes == 1 ||diaMes ==16);
 
     if (ejecutarTarea) {
       await collection.updateOne(
