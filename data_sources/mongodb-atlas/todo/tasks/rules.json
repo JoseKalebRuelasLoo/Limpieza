@@ -3,7 +3,7 @@
     "collection": "tasks",
     "roles": [
         {
-            "name": "readAndWriteAll",
+            "name": "server",
             "apply_when": {},
             "document_filters": {
                 "read": true,
