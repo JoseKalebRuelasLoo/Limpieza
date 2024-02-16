@@ -16,7 +16,7 @@
     {
         "name": "UpdateTask",
         "private": false,
-        "run_as_user_id": "65ce5742cea80a9f46b384aa"
+        "run_as_system": true
     },
     {
         "name": "RestartTasks",
