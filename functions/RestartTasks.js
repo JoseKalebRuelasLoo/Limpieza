@@ -12,10 +12,14 @@ exports = async function() {
     const ejecutarTarea = cronDocumento.includes(`${diaSemana}`);
 
     if (ejecutarTarea) {
+      //Guarda la tarea para su agregacion a la bitacora
+      
       await collection.updateOne(
         { _id: documento._id },
         { $set: { Completed: "false" } }
       );
     }
   });
+  //Agrega las tareas a la bitacora 
+  
 };
