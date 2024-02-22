@@ -19,7 +19,7 @@ exports = async function () {
             if ((documento.Frequency.LastCompleted == 15&&documento.Frequency.Cron == "q")) {
                 await collection.updateOne(
                     { _id: documento._id },
-                    { $set: { Completed: "false", LastCompleted: "0" } }
+                    { $set: { Completed: "false", Frequency:{LastCompleted: "0" }} }
                 );
             } else {
                 await collection.updateOne(
