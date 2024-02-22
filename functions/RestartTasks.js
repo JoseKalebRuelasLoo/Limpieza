@@ -1,35 +1,39 @@
-exports = async function() {
-  var collection = context.services.get("mongodb-atlas").db("todo").collection("tasks");
-  var logsCollection = context.services.get("mongodb-atlas").db("todo").collection("logs");
+exports = async function () {
+    var collection = context.services.get("mongodb-atlas").db("todo").collection("tasks");
+    var logsCollection = context.services.get("mongodb-atlas").db("todo").collection("logs");
 
-  const documentos = await collection.find({}).toArray();
+    const documentos = await collection.find({}).toArray();
 
-  const fechaActual = new Date();
-  const diaSemana = fechaActual.getDay();
-  
-  let logs = [];
-  
-  for (let documento of documentos) {
-    const cronDocumento = documento.Frequency.Cron; 
+    const fechaActual = new Date();
+    const diaSemana = fechaActual.getDay();
 
-    const ejecutarTarea = cronDocumento.includes(`${diaSemana}`);
+    let logs = [];
 
-    if (ejecutarTarea) {
-      // Guarda la tarea para su agregacion a la bitacora
-      const log = { ...documento};
-      
-      await collection.updateOne(
-        { _id: documento._id },
-        { $set: { Completed: "false" } }
-      );
+    for (let documento of documentos) {
+        const ejecutarTarea = (documento.Frequency.Cron.includes(`${diaSemana}`) || documento.Frequency.Cron == "q");
 
-      // Agrega las tareas al array de logs
-      logs.push(log);
+        if (ejecutarTarea) {
+            // Guarda la tarea para su agregacion a la bitacora
+            const log = { ...documento };
+
+            if (documento.Frequency.LastCompleted == 15) {
+                await collection.updateOne(
+                    { _id: documento._id },
+                    { $set: { Completed: "false", LastCompleted: "0" } }
+                );
+            } else {
+                await collection.updateOne(
+                    { _id: documento._id },
+                    { $set: { Completed: "false" } }
+                );
+            }
+            // Agrega las tareas al array de logs
+            logs.push(log);
+        }
     }
-  }
 
-  // Agrega todos los logs a la bitacora en un solo objeto
-  if (logs.length > 0) {
-    await logsCollection.insertOne({ date: new Date(), Logs: logs });
-  }
+    // Agrega todos los logs a la bitacora en un solo objeto
+    if (logs.length > 0) {
+        await logsCollection.insertOne({ date: new Date(), Logs: logs });
+    }
 };
