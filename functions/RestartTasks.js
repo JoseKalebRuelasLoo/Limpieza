@@ -16,7 +16,7 @@ exports = async function() {
 
     if (ejecutarTarea) {
       // Guarda la tarea para su agregacion a la bitacora
-      const log = { ...documento, UpdatedAt: new Date() };
+      const log = { ...documento};
       
       await collection.updateOne(
         { _id: documento._id },
@@ -30,6 +30,6 @@ exports = async function() {
 
   // Agrega todos los logs a la bitacora en un solo objeto
   if (logs.length > 0) {
-    await logsCollection.insertOne({ UpdatedAt: new Date(), Logs: logs });
+    await logsCollection.insertOne({ date: new Date(), Logs: logs });
   }
 };
