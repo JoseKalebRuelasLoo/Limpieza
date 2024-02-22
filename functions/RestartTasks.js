@@ -16,7 +16,7 @@ exports = async function () {
             // Guarda la tarea para su agregacion a la bitacora
             const log = { ...documento };
 
-            if (documento.Frequency.LastCompleted == 15) {
+            if ((documento.Frequency.LastCompleted == 15&&documento.Frequency.Cron == "q")) {
                 await collection.updateOne(
                     { _id: documento._id },
                     { $set: { Completed: "false", LastCompleted: "0" } }
