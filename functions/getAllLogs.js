@@ -2,11 +2,16 @@ exports = async function(request, response){
 
   var collection = context.services.get("mongodb-atlas").db("todo").collection("logs");
   const month = new Date().getMonth()+1;
+  
+  let logs = [];
 
-  return collection.find({ "month":month })
-  .toArray()
+  return collection.find({ "month":month}, { Logs: 1, date: 1 })
   .then(items => {
-    console.log(`Successfully found ${items.length} documents.`)
+    logs.push(items);
+    //await collection.insertOne({  mes: new Date().getMonth()+1,Logs: logs });
+
+
+/// moverle aqui
 
     
   })
