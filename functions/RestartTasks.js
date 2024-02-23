@@ -2,7 +2,7 @@ exports = async function () {
     var collection = context.services.get("mongodb-atlas").db("todo").collection("tasks");
     var logsCollection = context.services.get("mongodb-atlas").db("todo").collection("logs");
 
-    const documentos = await collection.find({}).toArray();
+    const documentos = await collection.find({}).toArray().sort({ Place: 1 });
 
     const fechaActual = new Date();
     const diaSemana = fechaActual.getDay();
