@@ -31,11 +31,11 @@ exports = async function () {
             logs.push(log);
         }
     }
-
+/*
     // Agrega todos los logs a la bitacora en un solo objeto
     const dia = new Date().getDay();
     dia.toLocaleString('es-MX', { timeZone: 'America/Mexico_City' })
     if (logs.length > 0) {
         await logsCollection.insertOne({ date: dia, month: new Date().getMonth()+1,Logs: logs });
     }
-};
+*/};
