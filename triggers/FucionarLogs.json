@@ -3,7 +3,7 @@
     "type": "SCHEDULED",
     "disabled": false,
     "config": {
-        "schedule": "0 6 1 * *",
+        "schedule": "50 5 1 * *",
         "skip_catchup_events": false
     },
     "event_processors": {
