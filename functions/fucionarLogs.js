@@ -6,13 +6,13 @@ exports = async function () {
         const year = new Date().getFullYear();
         const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 
-        const mes =monthNames[month-1];
+        const mes =monthNames[month];
 
-        const items = await collection.find({ "month": month }, { Logs: 1, date: 1 }).toArray();
+        const items = await collection.find({ "month": month+1 }, { Logs: 1, date: 1 }).toArray();
         
         await collection.insertOne({ Año: year,mes: mes, Logs: items });
 
-        await collection.deleteMany({ "month": month });
+        await collection.deleteMany({ "month": month+1 });
 
         console.log("Deleted logs");
     } catch (error) {
