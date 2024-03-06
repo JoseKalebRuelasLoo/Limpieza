@@ -14,11 +14,11 @@ exports = async function(request, response){
       throw new Error(`Request body is nully.`);
     }
 
-    const body = JSON.parse(request.body)
+    const body = EJSON.parse(request.body.text())
     
     const { place, task, requester } = body;
 
-    const result = await collection.insertOne({isComplete:"false", place: "hard", task: "coded", requester: "uwu" });
+    const result = await collection.insertOne({isComplete:"false", place, task, requester});
     response.setStatusCode(201);
     response.setBody(
       JSON.stringify({
