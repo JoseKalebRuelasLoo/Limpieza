@@ -16,7 +16,7 @@ exports = async function(request, response){
 
     const { place, task, requester } = request.body;
 
-    const result = await collection.insertOne({isComplete:"false", place, task, requester });
+    const result = await collection.insertOne({isComplete:"false", place: "hard", task: "coded", requester: "uwu" });
     response.setStatusCode(201);
     response.setBody(
       JSON.stringify({
