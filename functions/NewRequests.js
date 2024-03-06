@@ -10,17 +10,19 @@ exports = async function(request, response){
     if (request.body === undefined) {
       throw new Error(`Request body was not defined.`);
     }
-    if (!request.body || request.body == {}) {
+    if (!request.body || request.body === "{}") {
       throw new Error(`Request body is nully.`);
     }
 
-    const { place, task, requester } = request.body;
+    const body = JSON.parse(request.body)
+    
+    const { place, task, requester } = body;
 
     const result = await collection.insertOne({isComplete:"false", place: "hard", task: "coded", requester: "uwu" });
     response.setStatusCode(201);
     response.setBody(
       JSON.stringify({
-        atlasRequestBody: request.body,
+        atlasRequestBody: body,
         result,
         message: "Successfully saved the request body",
       })
