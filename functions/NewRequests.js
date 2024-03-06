@@ -5,6 +5,7 @@ exports = async function(request, response){
 
   var collection = context.services.get(serviceName).db(dbName).collection(collName);
 
+  console.log("atlas request", request)
   try {
     if (request.body === undefined) {
       throw new Error(`Request body was not defined.`);
