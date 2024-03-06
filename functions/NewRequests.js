@@ -9,6 +9,9 @@ exports = async function(request, response){
     if (request.body === undefined) {
       throw new Error(`Request body was not defined.`);
     }
+    if (!request.body) {
+      throw new Error(`Request body is nully.`);
+    }
 
     const { place, task, requester } = request.body;
 
