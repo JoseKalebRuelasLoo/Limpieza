@@ -12,11 +12,11 @@ exports = async function(request, response){
 
     const { place, task, requester } = request.body;
 
-    const { insertedId } = await collection.insertOne({isComplete:"false", place, task, requester });
+    const result = await collection.insertOne({isComplete:"false", place, task, requester });
     response.setStatusCode(201);
     response.setBody(
       JSON.stringify({
-        insertedId,
+        result,
         message: "Successfully saved the request body",
       })
     );
