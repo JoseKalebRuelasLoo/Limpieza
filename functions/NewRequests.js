@@ -16,6 +16,7 @@ exports = async function(request, response){
     response.setStatusCode(201);
     response.setBody(
       JSON.stringify({
+        atlasRequestBody: request.body,
         result,
         message: "Successfully saved the request body",
       })
