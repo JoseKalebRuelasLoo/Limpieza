@@ -14,7 +14,7 @@ exports = async function(request, response){
       throw new Error(`Request body is nully.`);
     }
 
-    const body = JSON.parse(request.body.text())
+    const body = JSON.parse(request.body.text());
     
     const { place, task, requester } = body;
 
