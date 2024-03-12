@@ -8,11 +8,11 @@ exports = async function () {
 
         const mes =monthNames[month];
 
-        const items = await collection.find({ "month": month+1 }, { Logs: 1, date: 1 }).toArray();
+        const items = await collection.find({ "month": month }, { Logs: 1, date: 1 }).toArray();
         
         await collection.insertOne({ Año: year,mes: mes, Logs: items });
 
-        await collection.deleteMany({ "month": month+1 });
+        await collection.deleteMany({ "month": month });
 
         console.log("Deleted logs");
     } catch (error) {
