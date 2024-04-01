@@ -5,11 +5,11 @@ exports = async function () {
         const collection = context.services.get("mongodb-atlas").db("todo").collection("logs");
 
         const fechaActual = moment().tz('America/Chihuahua').subtract(1, 'months');
-        const month = fechaActual.month();
+        const month = fechaActual.month()+1;
         const year = fechaActual.year();
 
         const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
-        const mes = monthNames[month];
+        const mes = monthNames[month-1];
 
         const items = await collection.find({ "month": month }, { Logs: 1, date: 1 }).toArray();
         
