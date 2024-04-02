@@ -34,6 +34,6 @@ exports = async function () {
 
     // Agrega todos los logs a la bitacora en un solo objeto
     if (logs.length > 0) {
-        await logsCollection.insertOne({ date: fechaActual.getDate(), month: dia.month() + 1, Logs: logs });
+        await logsCollection.insertOne({ date: fechaActual.getDate(), month: fechaActual.getMonth() + 1, Logs: logs });
     }
 };
