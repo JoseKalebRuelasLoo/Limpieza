@@ -44,5 +44,9 @@
     {
         "name": "getLog",
         "private": false
+    },
+    {
+        "name": "getTask",
+        "private": false
     }
 ]
