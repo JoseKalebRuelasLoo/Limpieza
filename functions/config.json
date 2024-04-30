@@ -48,5 +48,10 @@
     {
         "name": "getTask",
         "private": false
+    },
+    {
+        "name": "newTask",
+        "private": false,
+        "disable_arg_logs": true
     }
 ]
