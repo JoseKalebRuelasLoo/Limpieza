@@ -19,22 +19,25 @@ exports = async function (request, response) {
 
     const body = JSON.parse(request.body.text());
 
-    const { Place, Task, Frequency } = body;
+    const { id } = body;
 
-    const result = await collection.insertOne({
-      Place,
-      Task,
-      Frequency,
-      Completed: "false",
-    });
-    response.setStatusCode(201);
-    response.setBody(
-      JSON.stringify({
-        atlasRequestBody: body,
-        result,
-        message: "Successfully saved the request body",
-      })
-    );
+    const result = await collection.deleteOne({ _id: new ObjectId(id) });
+
+    if (result.deletedCount === 1) {
+      response.setStatusCode(200);
+      response.setBody(
+        JSON.stringify({
+          message: "Successfully deleted the record",
+        })
+      );
+    } else {
+      response.setStatusCode(404);
+      response.setBody(
+        JSON.stringify({
+          message: "No record found with the provided ID",
+        })
+      );
+    }
   } catch (error) {
     response.setStatusCode(400);
     response.setBody(error.message);
