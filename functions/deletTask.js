@@ -21,6 +21,8 @@ exports = async function (request, response) {
 
     const { id } = body;
 
+    console.log(id);
+    
     const result = await collection.deleteOne({ _id: new ObjectId(id) });
 
     if (result.deletedCount === 1) {
