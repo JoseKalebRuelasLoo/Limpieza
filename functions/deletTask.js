@@ -8,7 +8,6 @@ exports = async function (request, response) {
     .db(dbName)
     .collection(collName);
 
-  console.log("Atlas request", request);
   try {
     if (request.body === undefined) {
       throw new Error(`Request body was not defined.`);
