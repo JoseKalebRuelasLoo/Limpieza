@@ -9,26 +9,16 @@ exports = async function (request, response) {
     .collection(collName);
 
   try {
-    
-    if (request.body === undefined) {
-      throw new Error(`Request body was not defined.`);
-    }
-    if (!request.body || request.body === "{}") {
-      throw new Error(`Request body is nully.`);
-    }
+    const query = { _id: BSON.ObjectId(request.query.id) };
 
-    const body = JSON.parse(request.body.text());
+    //const result = await collection.deleteOne(query);
 
-    const { id } = body;
-    
-    //const result = await collection.deleteOne({ _id: new ObjectId(id) });
-
-      response.setStatusCode(200);
-      response.setBody(
-        JSON.stringify({
-          message: id,
-        })
-      );
+    response.setStatusCode(200);
+    response.setBody(
+      JSON.stringify({
+        message: query,
+      })
+    );
 
     /*
     if (result.deletedCount === 1) {
