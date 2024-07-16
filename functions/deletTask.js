@@ -11,16 +11,8 @@ exports = async function (request, response) {
   try {
     const query = { _id: BSON.ObjectId(request.query.id) };
 
-    //const result = await collection.deleteOne(query);
+    const result = await collection.deleteOne(query);
 
-    response.setStatusCode(200);
-    response.setBody(
-      JSON.stringify({
-        message: query,
-      })
-    );
-
-    /*
     if (result.deletedCount === 1) {
       response.setStatusCode(200);
       response.setBody(
@@ -35,7 +27,7 @@ exports = async function (request, response) {
           message: "No record found with the provided ID",
         })
       );
-    }*/
+    }
   } catch (error) {
     response.setStatusCode(400);
     response.setBody(error.message);
