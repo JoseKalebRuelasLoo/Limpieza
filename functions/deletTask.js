@@ -1,5 +1,5 @@
 exports = async function (request, response) {
-  /*var serviceName = "mongodb-atlas";
+  var serviceName = "mongodb-atlas";
   var dbName = "todo";
   var collName = "tasks";
 
@@ -7,7 +7,7 @@ exports = async function (request, response) {
     .get(serviceName)
     .db(dbName)
     .collection(collName);
-*/
+
   try {
     /*
     if (request.body === undefined) {
