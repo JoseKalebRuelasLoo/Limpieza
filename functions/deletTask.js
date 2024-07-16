@@ -40,7 +40,7 @@ exports = async function (request, response) {
       );
     }
   } catch (error) {
-    response.setStatusCode(400);
+    response.setStatusCode(401);
     //response.setBody(error.message);
     response.setBody("Hola");
   }
