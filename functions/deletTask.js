@@ -9,13 +9,13 @@ exports = async function (request, response) {
     .collection(collName);
 */
   try {
-    
+    /*
     if (request.body === undefined) {
       throw new Error(`Request body was not defined.`);
     }
     if (!request.body || request.body === "{}") {
       throw new Error(`Request body is nully.`);
-    }
+    }*/
 
     const body = JSON.parse(request.body.text());
 
