@@ -28,7 +28,7 @@ exports = async function (request, response) {
       response.setStatusCode(200);
       response.setBody(
         JSON.stringify({
-          message: "Successfully deleted the record"+id,
+          message: "Successfully deleted the record "+id,
         })
       );
 
