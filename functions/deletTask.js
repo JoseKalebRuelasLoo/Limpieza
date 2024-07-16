@@ -22,8 +22,16 @@ exports = async function (request, response) {
 
     console.log(id);
     
-    const result = await collection.deleteOne({ _id: new ObjectId(id) });
+    //const result = await collection.deleteOne({ _id: new ObjectId(id) });
 
+      response.setStatusCode(200);
+      response.setBody(
+        JSON.stringify({
+          message: "Successfully deleted the record"+id,
+        })
+      );
+
+    /*
     if (result.deletedCount === 1) {
       response.setStatusCode(200);
       response.setBody(
@@ -38,10 +46,9 @@ exports = async function (request, response) {
           message: "No record found with the provided ID",
         })
       );
-    }
+    }*/
   } catch (error) {
-    response.setStatusCode(401);
-    //response.setBody(error.message);
-    response.setBody("Hola");
+    response.setStatusCode(400);
+    response.setBody(error.message);
   }
 };
