@@ -41,6 +41,7 @@ exports = async function (request, response) {
     }
   } catch (error) {
     response.setStatusCode(400);
-    response.setBody(error.message);
+    //response.setBody(error.message);
+    response.setBody("Hola");
   }
 };
