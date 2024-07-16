@@ -9,7 +9,7 @@ exports = async function (request, response) {
     .collection(collName);
 
   try {
-    /*
+    
     if (request.body === undefined) {
       throw new Error(`Request body was not defined.`);
     }
@@ -19,14 +19,14 @@ exports = async function (request, response) {
 
     const body = JSON.parse(request.body.text());
 
-    const { id } = body;*/
+    const { id } = body;
     
     //const result = await collection.deleteOne({ _id: new ObjectId(id) });
 
       response.setStatusCode(200);
       response.setBody(
         JSON.stringify({
-          message: "Hola",
+          message: id,
         })
       );
 
