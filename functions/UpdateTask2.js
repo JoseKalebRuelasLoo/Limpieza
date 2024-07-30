@@ -17,6 +17,8 @@ exports = async function (request, response) {
     },
   };
 
+console.log(update);
+  
   return collection
     .findOneAndUpdate(query, update)
     .then((updatedDocument) => {
