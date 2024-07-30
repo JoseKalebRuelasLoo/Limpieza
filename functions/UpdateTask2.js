@@ -12,41 +12,26 @@ exports = async function (request, response) {
       Task: Task,
       Frequency: {
         Cron: Frequency,
-        Days: " ",
+        Days: "Dias",
       },
     },
   };
-  
+
   return collection
     .findOneAndUpdate(query, update)
     .then((updatedDocument) => {
       if (updatedDocument) {
         console.log(`Successfully updated document`);
         response.setStatusCode(200);
-        response.setBody(
-          JSON.stringify({
-            updatedDocument: updatedDocument,
-            message: "Successfully updated document",
-          })
-        );
+        response.setBody(`Successfully updated document`);
       } else {
         console.log(`No document matches the provided query`);
         response.setStatusCode(400);
-        response.setBody(
-          JSON.stringify({
-            updatedDocument: updatedDocument,
-            message: "No document matches the provided query",
-          })
-        );
+        response.setBody(`No document matches the provided query`);
       }
     })
     .catch((error) => {
-      console.error(error.message, update);
       response.setStatusCode(400);
-      response.setBody(
-        JSON.stringify({
-          error: error.message,
-        })
-      );
+      response.setBody(error.message);
     });
 };
