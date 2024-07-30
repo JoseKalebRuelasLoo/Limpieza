@@ -16,8 +16,6 @@ exports = async function (request, response) {
       },
     },
   };
-
-console.log(update);
   
   return collection
     .findOneAndUpdate(query, update)
@@ -43,7 +41,7 @@ console.log(update);
       }
     })
     .catch((error) => {
-      console.error(error.message);
+      console.error(error.message, update);
       response.setStatusCode(400);
       response.setBody(
         JSON.stringify({
