@@ -43,6 +43,10 @@ exports = async function (request, response) {
     .catch((error) => {
       console.error(error.message);
       response.setStatusCode(400);
-      response.setBody(error.message);
+      response.setBody(
+        JSON.stringify({
+          error: error.message,
+        })
+      );
     });
 };
