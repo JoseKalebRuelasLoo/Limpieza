@@ -23,15 +23,27 @@ exports = async function (request, response) {
       if (updatedDocument) {
         console.log(`Successfully updated document`);
         response.setStatusCode(200);
-        response.setBody(`Successfully updated document`);
+        response.setBody(
+          JSON.stringify({
+            message: `Successfully updated document`,
+          })
+        );
       } else {
         console.log(`No document matches the provided query`);
         response.setStatusCode(400);
-        response.setBody(`No document matches the provided query`);
+        response.setBody(
+          JSON.stringify({
+            error: `No document matches the provided query`,
+          })
+        );
       }
     })
     .catch((error) => {
       response.setStatusCode(400);
-      response.setBody(error.message);
+      response.setBody(
+        JSON.stringify({
+          error: error.message,
+        })
+      );
     });
 };
